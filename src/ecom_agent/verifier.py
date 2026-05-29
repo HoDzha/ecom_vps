@@ -55,7 +55,7 @@ class VerifierAgent:
         if outcome.status.value == "success" and not outcome.result:
             reason_codes.append("SUCCESS_EMPTY_RESULT")
 
-        if route.domain.value == "finance":
+        if route.domain.value == "finance" and outcome.status.value == "success":
             expected_steps = {"s1", "s2", "s3"}
             present_steps = set(outcome.result.keys())
             missing_steps = sorted(expected_steps - present_steps)
